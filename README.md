@@ -1,6 +1,6 @@
-# klingon-english-translator
+# Klingon-English-Translator(A dumb way to make a Klingon to English translator  with a CLI)
 ![318972](https://github.com/Mutombe/klingon-english-translator/assets/99067471/12c9e7d1-3440-469f-b321-e8ed2b630862)
-A dumb way to make a Klingon to English translator  with a CLI
+
 
 ```
 python translation.py <arguments>

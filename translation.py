@@ -5,8 +5,8 @@ import csv
 translations = {}
 
 def load_translations_from_csv(file_path):
-    with open(file_path, 'r') as file:
-        reader = csv.DictReader(data)
+    with open('data.csv', 'r') as file:
+        reader = csv.DictReader(file)
         for row in reader:
             translations[row['english']] = {
                 'translation': row['klingon'],
@@ -17,13 +17,13 @@ def load_translations_from_csv(file_path):
 def translate_to_klingon(word):
     word = word.lower()
     if word in translations:
-        return[word]['translation'], translations[word]['example']
+        return translations[word]['translation'], translations[word]['example']
     else:
         return None, None
     
 def conjugate_verb(word, tense):
     word = word.lower()
-    if word in translations and translations[word]['verb']:
+    if word in translations and translations[word]['verb'] == 'yes':
         if tense == 'present':
             return word + 'a'
         elif tense == 'past':

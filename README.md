@@ -25,7 +25,8 @@ Replace <arguments> with the appropriate command and options based on what you w
 - To load translations from the CSV file and then perform a translation:
 
   ```
-  python translation.py data.csv cat -e -l data.csv
+  python translation.py cat -e -l data.csv
   ```
 
 Make sure to adjust the commands and options according to your requirements.
+![Screenshot (41)](https://github.com/Mutombe/klingon-english-translator/assets/99067471/f6d5dcb7-23cc-4901-a7ce-75e8d54eeb36)

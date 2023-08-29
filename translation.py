@@ -1,4 +1,5 @@
 import argparse
+import sys
 import random
 import csv
 
@@ -35,7 +36,7 @@ def conjugate_verb(word, tense):
 
 def random_translation():
     random_word = random.choice(list(translations.keys()))
-    return random_word, translations['random_word']['translation']
+    return random_word, translations[random_word]['translation']
 
 def generate_flashcards(num_flashcards):
     flashcards = []
@@ -50,12 +51,18 @@ def main():
     parser.add_argument('word', help='Word to translate or command to execute')
     parser.add_argument('-e', '--english-to-klingon', action='store_true',
                         help='Translate from English to Klingon')
-    parser.add_argument('-c', 'conjugate', metavar='TENSE',
+    parser.add_argument('-c', '--conjugate', metavar='TENSE',
                         help='Conjugate a verb in the specified tense')
-    parser.add_argument(help='Generate flashcards for practicing Klingon')
+    parser.add_argument('-f', '--flashcards', dest='flashcards', metavar='NUM_FLASHCARDS', type=int, 
+                        help='Generate flashcards for practicing Klingon')
     parser.add_argument('-l', '--load-csv', metavar='FILE', help='Load translations from a CSV file')
     
-    args = parser.parse_args()
+    try:
+        args = parser.parse_args()
+    except argparse.ArgumentError as e:
+        print(f"Argument parsing error: {e}")
+        sys.exit(1)
+        
     word =args.word
     if args.load_csv:
         load_translations_from_csv(args.load_csv)
@@ -68,21 +75,23 @@ def main():
                 print(f'Example: {example}')
             else:
                 print(f'Translation for {word} not found !!')
-                
-        elif args.conjugate:
-            conjugate_verb = conjugate_verb(word, args.conjugate)
-            if conjugate_verb:
-                print(conjugate_verb)
-            else:
-                print(f"Verb for {word} not found or conjugatable !")
-        
-        elif args.flashcards:
-            flashcards = generate_flashcards(args.flashcards)
-            print("Flashcards: ")
-            for flashcard in flashcards:
-                print(f"Word: {flashcard['word']}\tTranslation: {flashcard['translation']}")
         else:
-            print('Please specify a valid command.')
+            print(f'Translation for {word} not found !!')
+                
+    elif args.conjugate:
+        conjugate_verb = conjugate_verb(word, args.conjugate)
+        if conjugate_verb:
+            print(conjugate_verb)
+        else:
+            print(f"Verb for {word} not found or conjugatable !")
+        
+    elif args.flashcards:
+        flashcards = generate_flashcards(args.flashcards)
+        print("Flashcards: ")
+        for flashcard in flashcards:
+            print(f"Word: {flashcard['word']}\tTranslation: {flashcard['translation']}")
+    else:
+        print('Please specify a valid command.')
         
 if __name__ == '__main__':
     main()

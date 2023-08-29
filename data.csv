@@ -1,5 +1,7 @@
 english,klingon,example,verb
 hello,nuqneH,nuqneH 'oH Qap?,no
+play,DaH,qaStaHvIS DaH muSHa'ghach.,yes
+sing,laD,pIqaDlaD jImej.,yes
 goodbye,qapla',qapla' batlh je,no
 thank you,qatlho',qatlho' vItlhutlh,no
 cat,Hab,lo' Hab,lr
@@ -8,7 +10,6 @@ eat,ghab,ghab'a' vItlhutlh,yes
 drink,ghItlh,ghItlh vIghro',yes
 run,jaq,jaq vIghro',yes
 sleep,bIj,bIjatlhutlh,yes
-hello,nuqneH,nuqneH 'oH Qap?,no
 goodbye,qapla',qapla' batlh je,no
 thank you,qatlho',qatlho' vItlhutlh,no
 cat,Hab,lo' Hab,lr

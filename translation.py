@@ -6,7 +6,7 @@ import csv
 translations = {}
 
 def load_translations_from_csv(file_path):
-    with open('data.csv', 'r') as file:
+    with open(file_path, 'r') as file:
         reader = csv.DictReader(file)
         for row in reader:
             translations[row['english']] = {
@@ -33,6 +33,7 @@ def conjugate_verb(word, tense):
             return 'will ' + word
         else:
             return word
+    return None
 
 def random_translation():
     random_word = random.choice(list(translations.keys()))

@@ -32,5 +32,7 @@ Replace <arguments> with the appropriate command and options based on what you w
   python translation.py cat -e -l data.csv
   ```
 
-Make sure to adjust the commands and options according to your requirements.
+ ```
+  python tests.py
+  ```
 ![Screenshot (41)](https://github.com/Mutombe/klingon-english-translator/assets/99067471/f6d5dcb7-23cc-4901-a7ce-75e8d54eeb36)
